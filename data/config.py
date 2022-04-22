@@ -173,7 +173,15 @@ pascal_sbd_dataset = dataset_base.copy({
 })
 
 
-
+strawberry_disease_dataset = dataset_base.copy({
+  'name': 'strawberry_disease',
+  'train_info': '/content/train_annotations/dataset.json',
+  'train_images': '/content/train',
+  'valid_info': '/content/val_annotations/dataset.json',
+  'valid_images': '/content/val',
+  'class_names': ('powdery_mildew_leaf', 'powdery_mildew_fruit', 'leaf_spot', 'gray_mold', 'blossom_blight', 'anthracnose_fruit_rot', 'angular_leafspot'),
+  'label_map': { 1:  1, 2:  2, 3:  3, 4:  4, 5:  5, 6:  6, 7:  7}
+})
 
 
 # ----------------------- TRANSFORMS ----------------------- #
@@ -766,7 +774,15 @@ yolact_resnet50_pascal_config = yolact_resnet50_config.copy({
         'use_square_anchors': False,
     })
 })
+yolact_resnet50_strawberry_diseas_config = yolact_resnet50_config.copy({
+    'name': 'yolact_plus_resnet50_strawberry_disease',
+    # Dataset stuff
+    'dataset': strawberry_disease_dataset,
+    'num_classes': len(strawberry_disease_dataset.class_names) + 1,
 
+    # Image Size
+    'max_size': 419,
+})
 # ----------------------- YOLACT++ CONFIGS ----------------------- #
 
 yolact_plus_base_config = yolact_base_config.copy({
