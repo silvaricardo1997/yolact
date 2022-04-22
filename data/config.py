@@ -774,7 +774,7 @@ yolact_resnet50_pascal_config = yolact_resnet50_config.copy({
         'use_square_anchors': False,
     })
 })
-yolact_resnet50_strawberry_diseas_config = yolact_resnet50_config.copy({
+yolact_resnet50_strawberry_disease_config = yolact_resnet50_config.copy({
     'name': 'yolact_plus_resnet50_strawberry_disease',
     # Dataset stuff
     'dataset': strawberry_disease_dataset,
